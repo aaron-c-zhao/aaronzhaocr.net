@@ -28,8 +28,8 @@ jobs:
       - name: Cofnigure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: ${{ secrets.AWS_GITHUB_ACTIONS_EXECUTION_ROLE }}
+          role-to-assume: "arn:aws:iam::649863256707:role/github-oidc-povider-GithubActionsExecutionRole-1N5M14XHC4QVL"
           aws-region: us-east-1
       - name: Deploy to AWS S3
         run: |
-          aws s3 sync ./_site/ s3://${{ secrets.PROD_BUCKET_NAME }} --delete
+          aws s3 sync ./_site/ s3://www.aaronzhaocr.net --delete

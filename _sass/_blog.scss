@@ -2,6 +2,27 @@
   box-shadow: none !important;
 }
 
+.post-list {
+  list-style-type: none;
+
+  li:hover {
+    background-color: $light;
+  }
+
+  .date {
+    float:right
+  }
+
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 0 0 1em 0;
+    padding: 0;
+  }
+}
+
 .post {
   .post-metadata {
     font-size: 14px;
@@ -12,6 +33,7 @@
     background-color: $primary;
     color: white !important;
   }
+
 
   footer {
     font-size: 10px;

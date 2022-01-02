@@ -1,5 +1,6 @@
 ---
 layout: post
+tags: ["tutorial"]
 title:  "Welcome to Jekyll!"
 date:   2022-01-01 15:09:56 +0100
 categories: jekyll update

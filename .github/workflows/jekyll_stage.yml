@@ -1,12 +1,13 @@
-name: Build and upload site to prod S3 bucket
+name: Build and upload staging website to stage S3 bucket
 
 on:
   push:
     branches:
-      - main
+      - develop
     paths-ignore:
       - README.md
       - .gitignore
+      - LICENSE
 
   workflow_dispatch:
 
@@ -35,4 +36,4 @@ jobs:
           aws-region: us-east-1
       - name: Deploy to AWS S3
         run: |
-          aws s3 sync ./_site/ s3://${{ secrets.PROD_BUCKET_NAME }} --delete
+          aws s3 sync ./_site/ s3://${{ secrets.STAGE_BUCKET_NAME }} --delete

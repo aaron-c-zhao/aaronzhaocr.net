@@ -20,9 +20,9 @@
 
 title: aaronzhaocr.net
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Hi, there. I'm Chengrui. This is my personal blog where I share with you what I 
+  have learned while growing to be a better developer. And maybe some quirks of mine.
+  :)
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.aaronzhaocr.com" # the base hostname & protocol for your site, e.g. http://example.com
 

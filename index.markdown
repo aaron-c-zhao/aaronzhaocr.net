@@ -8,7 +8,7 @@ layout: default
             return new Promise(resolve => setTimeout(resolve, ms))
         }
         async function dynamicGreet() {
-            const greetings = ["Hello, I'm Chengrui!", "Hallo, ik ben Chengrui!", "你好, 我叫程睿!"];
+            const greetings = ["Hello, I'm Chengrui!", "Hallo, ik ben Chengrui!", "你好, 我是程睿!"];
             let greet = document.querySelector("h1");
             let n = 1;
             while (true) {

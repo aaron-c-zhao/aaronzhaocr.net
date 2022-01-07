@@ -57,3 +57,4 @@ exclude:
   - README.md
   - LISCENSE
   - .github/
+  - gen_post.sh

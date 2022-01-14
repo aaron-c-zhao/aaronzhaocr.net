@@ -1,7 +1,23 @@
 #!/bin/bash
 
-while getopts "n:c:t:" option; do
+usage() {
+    echo '''
+    gen_post [OPTIONS]
+
+    OPTIONS:
+        -n name of the post, should be enclosed with double quotes
+        -c catergory where the post will be put into
+        -t tags. use multiple times for different tags
+    '''
+}
+
+
+
+while getopts ":hn:c:t:" option; do
     case $option in
+        h)
+            usage
+            exit;;
         n)
             name="$OPTARG";;
         c)
@@ -54,7 +70,7 @@ done
 
 file="${today}-${title}.markdown"
 
-echo "$template" >> _drafts/$file
+echo "$template" >> _posts/$file
 
 
 

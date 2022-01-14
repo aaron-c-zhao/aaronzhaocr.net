@@ -39,6 +39,8 @@ author:
   github: aaron-c-zhao
   linkedin: chengrui-zhao-91296b193
 
+permalink: /blog/:title.html
+
 nav_exclude:
   - _pages/tags.html
 # Exclude from processing.
@@ -57,3 +59,4 @@ exclude:
   - README.md
   - LISCENSE
   - .github/
+  - gen_post.sh

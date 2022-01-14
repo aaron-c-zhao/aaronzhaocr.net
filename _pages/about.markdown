@@ -13,3 +13,7 @@ weight: 3
 * pass the inburgeringsexamen
 * get my Dutch driving license
 * obtain my first pro level AWS certification
+
+
+## Things I want to learn in 2022
+* ansible?

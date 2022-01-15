@@ -8,6 +8,7 @@ on:
       - README.md
       - .gitignore
       - LICENSE
+      - gen_post.sh
 
   workflow_dispatch:
 
@@ -37,3 +38,17 @@ jobs:
       - name: Deploy to AWS S3
         run: |
           aws s3 sync ./_site/ s3://${{ secrets.STAGE_BUCKET_NAME }} --delete
+
+  publish:
+    needs: [build]
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Create pull request
+        run: |
+          curl \
+          -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          https://api.github.com/repos/octocat/${{ github.repository }}/pulls \
+          -d '{"head": "develop", "base": "main"}'

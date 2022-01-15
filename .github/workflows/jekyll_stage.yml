@@ -51,4 +51,4 @@ jobs:
           -H "Accept: application/vnd.github.v3+json" \
           -H 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
           https://api.github.com/repos/${{ github.repository }}/pulls \
-          -d '{"head": "develop", "base": "main"}'
+          -d '{"head": "develop", "base": "main", "title": "Publish new site"}'

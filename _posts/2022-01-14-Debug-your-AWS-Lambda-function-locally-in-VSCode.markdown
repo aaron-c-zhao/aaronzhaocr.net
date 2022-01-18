@@ -26,7 +26,25 @@ TL;DR
 * Make sure you have correct credentials setup in your `.aws/config`
 * you can use `aws cli` to aid you set up your credentials
 
-## Debugger Configuration
+## Caveat
+
+### Pseudo parameter AWS:AccountId
+When locally invoke your lambda, the your lambda is actually running in a docker container which simulates the lambda environment. The AWS:AccountId will be set to a fake account id e.g., 123456789012. So if you refer to this pseudo parameter in your template, you may run into some funny issue. 
+
+### Lambda execution role
+Additionally, the execution role defined in your template will not be created. So the lambda is executed with the identity you passed to sam. This identity is likely to have different permissions than your execution role. So you may find the lambda refuse to work after deployed to your account. 
+
+## Invoke your lambda with CLI command
+To invoke your Lambda in CLI, you can use the following command:
+```bash
+sam build && sam local invoke --region eu-central-1 --profile your-profile-name ExampleFunction -e tests/events/events.json --debug
+``` 
+* **--profile**: the identity associated with this profile will be used to execute your lambda function
+* **ExampleFunction**: The logical Id of your lambda function defined in the template.yaml
+* **-e(optional)**: pass a test event.
+* **--debug(optional)**: set this option if you want sam to spit out every detail of execution
+
+## VSCode Debugger Configuration
 As debugging any local projects in VSCode, all the configurations are done in the `launch.json` file. First, head to you template.yaml file. Then, you can either use the command palette by pressing `command + shift + p` and typing `Open launch.json`, or you can simply click `AWS: Add Debug Configuration` floating above your function's logical Id in Resource section.
 
 {% include image.html url="../assets/images/2022-01-14/add_debug_configuration.png" description="" %}

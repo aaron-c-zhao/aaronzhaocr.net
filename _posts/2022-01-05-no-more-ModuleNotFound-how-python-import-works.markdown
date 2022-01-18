@@ -1,6 +1,6 @@
 ---
 layout: post
-tags: ["Python", "Tutorial"]
+tags: ["Python", "Tutorial", "underTheHood"]
 title:  "No more ModuleNotFound: how Python import works"
 date:   2022-01-05 20:37:56 +0100
 categories: Python

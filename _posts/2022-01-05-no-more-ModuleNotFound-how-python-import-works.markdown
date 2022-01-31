@@ -161,7 +161,7 @@ Here I provide the TL;DR version. After the target module is found, the loader w
 The takeaway here is that all the code in the module's body is executed exactly once when it's imported. You can alter that with `importlib`, but that's out of the scope of this article. 
 
 ## How does Python find the module to be imported?
-In *What happened during importing*, we discussed that when a module is imported, Python will first search the `sys.modules` for the cached module. If this is not the first time importing this module, it would likely be found in the cache(unless you intentionally remove it from sys.modules). When the module couldn't be found in sys.modules, the meta path 'finder` will determine whether they can locate the module. You can customize the import system's behavior by replacing the `sys.meta_path`, which is out of the scope of this article. If you're interested in implementing your import system, take a look at [python doc: the import system](https://docs.python.org/3/reference/import.html).
+In *What happened during importing*, we discussed that when a module is imported, Python will first search the `sys.modules` for the cached module. If this is not the first time importing this module, it would likely be found in the cache(unless you intentionally remove it from sys.modules). When the module couldn't be found in sys.modules, the meta path finder will determine whether they can locate the module. You can customize the import system's behavior by replacing the `sys.meta_path`, which is out of the scope of this article. If you're interested in implementing your import system, take a look at [python doc: the import system](https://docs.python.org/3/reference/import.html).
 
 Like superheroes, the default finders have different capabilities, including locating built-in modules, [frozen modules](https://wiki.python.org/moin/Freeze) and modules on `import path`. The first two are straightforward. What we care about as a newbie is the last one. So what is this `import path`? To make my life easier, I tend to equate it with `sys.path`, which consists of: 
 
@@ -170,7 +170,7 @@ Like superheroes, the default finders have different capabilities, including loc
 3. installation-dependent default paths(site-package paths, etc)
    
 
-You can inspect the sys.path by printing it out like any other plain list. Notice that the first path in my output from Python REPL is an empty string. This is because
+You can inspect the sys.path by printing it out like any other plain list. Notice that the first path in my output from Python REPL is an empty string. This is because I'm invoking the interpreter in python REPL.
 ```bash
 >>> sys.path
 ['', '/usr/local/Cellar/python@3.9/3.9.9/Frameworks/Python.framework/Versions/3.9/lib/python39.zip', '/usr/local/Cellar/python@3.9/3.9.9/Frameworks/Python.framework/Versions/3.9/lib/python3.9', '/usr/local/Cellar/python@3.9/3.9.9/Frameworks/Python.framework/Versions/3.9/lib/python3.9/lib-dynload', '/usr/local/lib/python3.9/site-packages', '/Users/chegnruizhao/Repos/prd/CETLZAdfSharedLayers/mailer-master']

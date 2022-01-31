@@ -70,7 +70,7 @@ done
 
 file="${today}-${title}.markdown"
 
-echo "$template" >> _posts/$file
+echo "$template" >> _drafts/$file
 
 
 
